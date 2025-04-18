@@ -5,21 +5,24 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
-    {
-        public static PlayerController Instance { get; private set; }
+public class PlayerController : MonoBehaviour, IKitchenObjectParent
+{
+    public static PlayerController Instance { get; private set; }
 
-        [SerializeField] float moveSpeed = 10f;
-        [SerializeField] float rotationSpeed = 10f;
-        [SerializeField] Animator animator;
-        [SerializeField] float heightCast = 1.8f;
-        [SerializeField] float radiusCast = 0.6f;
-        [SerializeField] float distanceCast = 0.5f;
-        [SerializeField] float selectDistance = 0.5f;
-        
-        public event Action<ClearCounter> OnSelectedCounterChanged;
+    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float rotationSpeed = 10f;
+    [SerializeField] Animator animator;
+    [SerializeField] float heightCast = 1.8f;
+    [SerializeField] float radiusCast = 0.6f;
+    [SerializeField] float distanceCast = 0.5f;
+    [SerializeField] float selectDistance = 0.5f;
+    
+    public event Action<BaseCounter> OnSelectedCounterChanged;
 
-        BaseCounter selectedCounter;
+    BaseCounter selectedCounter;
+
+    [SerializeField] KitchenObject kitchenObject;
+    [SerializeField] GameObject holdPoint; 
 
     private void Awake()
     {
@@ -72,30 +75,30 @@ public class PlayerController : MonoBehaviour
         bool isHit = Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, selectDistance);
         if (isHit == false)
         {
-            // Debug.Log("No hit");
+            Debug.Log("No hit");
            SetSelectedCounter(null);
         }
         else
         {
            //Raycast ban trung vat the co collider 
-           //Kiem tra xem collider ban trung co phai la counter khong
-           ClearCounter counter = hit.collider.GetComponent<ClearCounter>();
+           //Kiem tra xem collider ban trung co phai la base counter khong
+           BaseCounter counter = hit.collider.GetComponent<BaseCounter>();
            if (counter == null)
            {
                 //Vat the ban trung khong phai la counter
-                // Debug.Log("ban trung nhung khong phai la couter");
+                Debug.Log("ban trung nhung khong phai la couter");
                 SetSelectedCounter(null);
            } 
            else
            {
                 //vat the ban trung chinh la couter
-                // Debug.Log("ban trurng couter");
+                Debug.Log("ban trurng couter");
                 SetSelectedCounter(counter);
            }
         }
     }
 
-    private void SetSelectedCounter(ClearCounter counter){
+    private void SetSelectedCounter(BaseCounter counter){
         if(selectedCounter != counter) 
         {
             selectedCounter = counter;
@@ -103,7 +106,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void CounterChanged(ClearCounter counter){
+    private void CounterChanged(BaseCounter counter){
         Debug.Log("Counter thay doi thanh: " + counter);
     } 
 
@@ -113,7 +116,7 @@ public class PlayerController : MonoBehaviour
             {
                 if(selectedCounter != null)
                 {
-                    selectedCounter.Interact();
+                    selectedCounter.Interact(this);
                 }
             }
 
@@ -153,5 +156,28 @@ public class PlayerController : MonoBehaviour
     
 
         
+    }
+
+    public bool HasKitchenObject()
+    {
+        // Kiểm tra xem có kitchenObject hay không
+        // Kitchen object = null => chưa có kitchenObject => false
+        // Kitchen object != null => đã có kitchenObject => true
+        return kitchenObject != null;
+    }
+
+    public Transform GetHoldPointTransform()
+    {
+        return holdPoint.transform;
+    }
+
+    public void SetKitchenObject(KitchenObject newKitchenObject)
+    {
+        kitchenObject = newKitchenObject;
+    }
+
+    public KitchenObject GetKitchenObject()
+    {
+        return kitchenObject;
     }
 }

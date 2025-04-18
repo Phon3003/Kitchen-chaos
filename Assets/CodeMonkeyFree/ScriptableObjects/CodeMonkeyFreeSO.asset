@@ -14,39 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1743842791
+  lastShownTimestamp: 1744819472
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1743842791
+  checkedLastUpdateTimestamp: 1744819472
   lastQOTDResponse:
-    questionId: 167
-    questionText: Where is the modulo % operator particularly useful?
-    answerA: Looping back on a list
-    answerB: Counting elements in a list
-    answerC: Creating a new list with size
+    questionId: 171
+    questionText: 'Is this valid code?
+
+      <p>string state = (health &gt; 0) ?
+      "ALIVE" : "DEAD";</p>'
+    answerA: Yes
+    answerB: No
+    answerC: 
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1743842791
+  lastQotdTimestamp: 1744819472
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleEnvironmentsApr25.png
-    topText: Gorgeous Realistic and Stylized Environments at 99% OFF!
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleApr25GUI.png
+    topText: Awesome Giant UI pack! Definitely get it to get a giant library of UI
+      elements 97% OFF!
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1743842791
+  lastDynamicHeaderTimestamp: 1744819472
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1743842791
+  websiteLatestMessageTimestamp: 1744819472
   websiteLatestVideos:
     videos:
+    - youTubeId: TZtbhCoff9Y
+      title: I found a MAGICAL GitHub project! (FREE Desktop in Unity!)
+    - youTubeId: aYKnB1OWuYA
+      title: TONS of AWESOME Assets up to 99% OFF! (Multiple Bundles and Spring Sales)
+    - youTubeId: zgJHRiounHs
+      title: The Problem of Making more MONEY with Assets than Games
     - youTubeId: wejUWjCVW94
       title: The 10 BEST Game Dev Beginner Projects to Make!
-    - youTubeId: 79an2JDe51g
-      title: NO MORE PROGRAMMING, let's do Pen Spinning instead!
-    - youTubeId: BR1HFAj2v-Y
-      title: This GAME made $28 MILLION! Why?
-    - youTubeId: SJClo9ny1kM
-      title: TOP 20 Visual Assets to INSPIRE YOU! (MARCH 2025)
-  websiteLatestVideosTimestamp: 1743842791
+  websiteLatestVideosTimestamp: 1744819472

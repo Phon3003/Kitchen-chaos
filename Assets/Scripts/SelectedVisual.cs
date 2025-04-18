@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SelectedVisual : MonoBehaviour
 {
-    private ClearCounter counter;
+    private BaseCounter counter;
 
     private void Awake()
     {
-        counter = GetComponentInParent<ClearCounter>();
+        counter = GetComponentInParent<BaseCounter>();
         // Debug.Log("counter:" +counter);
 
     }
@@ -20,7 +20,7 @@ public class SelectedVisual : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void PlayerSelectedCounterChanged(ClearCounter counter){
+    private void PlayerSelectedCounterChanged(BaseCounter counter){
         if(counter == null){
             gameObject.SetActive(false);
         }

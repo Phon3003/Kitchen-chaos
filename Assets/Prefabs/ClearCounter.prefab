@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6169326162878636594}
   m_Layer: 0
-  m_Name: spawnpoin
+  m_Name: HoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,9 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9ba8aa2d92b0d4283f90dae5531c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tomatoPrefab: {fileID: 3812876574508226177, guid: 81e9fe7b3cd084242a088e945f531f38,
-    type: 3}
-  spawnPoint: {fileID: 2882837616168917622}
+  kitchenObjectSO: {fileID: 0}
+  holdPoint: {fileID: 2882837616168917622}
 --- !u!65 &948445966986387455
 BoxCollider:
   m_ObjectHideFlags: 0

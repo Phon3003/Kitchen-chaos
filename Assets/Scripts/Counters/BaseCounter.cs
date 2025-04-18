@@ -5,10 +5,9 @@ using UnityEngine;
 
 public abstract class BaseCounter : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected KitchenObjectSO kitchenObjectSO;
-    [SerializeField] protected GameObject spawnPoint;
+    [SerializeField] protected GameObject holdPoint;
 
-    public virtual void Interact()
+    public virtual void Interact(PlayerController player)
     {
       
     }
@@ -16,7 +15,7 @@ public abstract class BaseCounter : MonoBehaviour, IInteractable
 
 public class CuttingCouter : BaseCounter
 {
-    public override void Interact()
+    public override void Interact(PlayerController player)
     {
         Debug.Log("Add Counter");
     }
